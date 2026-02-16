@@ -5,13 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MedAI | Elite Medical Concierge</title>
     
-    <!-- PWA Meta Tags -->
     <meta name="theme-color" content="#1e1b4b">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2869/2869815.png">
     
-    <!-- Manifest Dynamique -->
     <link id="manifest-link" rel="manifest">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -134,13 +132,11 @@
 </head>
 <body class="selection:bg-indigo-100 dark:selection:bg-indigo-900/50">
 
-    <!-- Arrière-plan artistique -->
     <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
         <div class="absolute top-0 right-0 w-[60%] h-[60%] bg-indigo-500/5 rounded-full blur-[150px]"></div>
         <div class="absolute bottom-0 left-0 w-[60%] h-[60%] bg-blue-500/5 rounded-full blur-[150px]"></div>
     </div>
 
-    <!-- Navigation -->
     <nav class="sticky top-0 z-[100] px-6 py-4 md:px-12 flex justify-between items-center premium-glass transition-all">
         <div class="flex items-center space-x-4">
             <div class="w-12 h-12 bg-slate-900 dark:bg-white rounded-2xl flex items-center justify-center text-white dark:text-slate-900 shadow-2xl rotate-3">
@@ -162,12 +158,11 @@
         </div>
     </nav>
 
-    <!-- Modal Configuration Clé API -->
     <div id="modal-config" class="fixed inset-0 z-[200] hidden flex items-center justify-center px-4 modal-backdrop">
         <div class="premium-glass max-w-md w-full rounded-[2.5rem] p-8 space-y-6 shadow-2xl border border-white/20">
             <div class="text-center space-y-2">
                 <h3 class="text-2xl font-black royal-gradient">Accès Sécurisé</h3>
-                <p class="text-slate-500 text-sm">Entrez votre clé API Gemini pour activer les fonctions de diagnostic. Elle sera stockée localement dans votre navigateur.</p>
+                <p class="text-slate-500 text-sm">Entrez votre clé API Gemini personnelle pour remplacer la clé par défaut.</p>
             </div>
             <div class="space-y-4">
                 <div class="relative">
@@ -185,7 +180,6 @@
     </div>
 
     <main class="max-w-5xl mx-auto px-6 pt-12 pb-32">
-        <!-- Hero Section -->
         <header class="text-center mb-16 space-y-6">
             <h1 class="text-4xl md:text-6xl font-black royal-gradient leading-tight">
                 L'Excellence du Diagnostic <br class="hidden md:block"> par l'Intelligence Artificielle
@@ -200,11 +194,9 @@
             </div>
         </header>
 
-        <!-- Zone d'interaction -->
         <div class="space-y-8">
             <div class="animated-border">
                 <div class="premium-glass rounded-[2rem] p-6 md:p-10 space-y-8">
-                    <!-- Champ texte -->
                     <div class="space-y-4">
                         <label class="text-xs uppercase tracking-widest font-black text-indigo-600 dark:text-indigo-400 flex items-center">
                             <i class="fas fa-pen-nib mr-2"></i> Anamnèse Clinique
@@ -214,7 +206,6 @@
                             placeholder="Décrivez ici vos symptômes, la durée et l'intensité..."></textarea>
                     </div>
 
-                    <!-- Outils Multimodaux -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <button id="btn-camera" class="flex items-center space-x-4 p-6 bg-white dark:bg-slate-800/40 rounded-3xl border border-slate-100 dark:border-slate-800 hover:shadow-xl hover:scale-[1.02] transition-all group">
                             <div class="w-14 h-14 rounded-2xl bg-indigo-50 dark:bg-indigo-900/30 flex items-center justify-center text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-all">
@@ -238,7 +229,6 @@
                         </label>
                     </div>
 
-                    <!-- Sandbox Media -->
                     <div id="media-preview-container" class="hidden space-y-6 p-6 bg-slate-50 dark:bg-slate-950/50 rounded-[2rem] border border-dashed border-slate-200 dark:border-slate-800">
                         <div id="camera-box" class="hidden flex flex-col items-center">
                             <video id="video-preview" autoplay playsinline class="shadow-2xl max-w-sm w-full"></video>
@@ -260,7 +250,6 @@
                 </div>
             </div>
 
-            <!-- Loading Premium -->
             <div id="loading" class="hidden flex flex-col items-center justify-center py-20 space-y-6">
                 <div class="relative w-20 h-20">
                     <div class="absolute inset-0 border-4 border-indigo-500/20 rounded-full"></div>
@@ -272,7 +261,6 @@
                 </div>
             </div>
 
-            <!-- Résultat Final -->
             <div id="result-container" class="hidden">
                 <div class="premium-glass rounded-[3rem] p-8 md:p-14 border-t-4 border-indigo-600 shadow-2xl">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12 border-b border-slate-100 dark:border-slate-800 pb-8">
@@ -306,9 +294,8 @@
     </main>
 
     <script>
-        // --- LOGIQUE PWA (Manifest & SW en un seul fichier) ---
+        // --- LOGIQUE PWA ---
         const setupPWA = () => {
-            // 1. Génération du manifest.json via Blob
             const manifest = {
                 "name": "MedAI Elite Concierge",
                 "short_name": "MedAI",
@@ -316,60 +303,50 @@
                 "display": "standalone",
                 "background_color": "#020617",
                 "theme_color": "#1e1b4b",
-                "icons": [
-                    {
-                        "src": "https://cdn-icons-png.flaticon.com/512/2869/2869815.png",
-                        "sizes": "512x512",
-                        "type": "image/png",
-                        "purpose": "any maskable"
-                    }
-                ]
+                "icons": [{
+                    "src": "https://cdn-icons-png.flaticon.com/512/2869/2869815.png",
+                    "sizes": "512x512",
+                    "type": "image/png",
+                    "purpose": "any maskable"
+                }]
             };
             const manifestBlob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
             document.getElementById('manifest-link').setAttribute('href', URL.createObjectURL(manifestBlob));
 
-            // 2. Génération et Enregistrement du Service Worker
             if ('serviceWorker' in navigator) {
                 const swCode = `
                     const CACHE_NAME = 'medai-cache-v1';
-                    const ASSETS = [
-                        '/',
-                        'https://cdn.tailwindcss.com',
-                        'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'
-                    ];
-
+                    const ASSETS = ['/', 'https://cdn.tailwindcss.com', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'];
                     self.addEventListener('install', (e) => {
                         e.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)));
                     });
-
                     self.addEventListener('fetch', (e) => {
-                        e.respondWith(
-                            caches.match(e.request).then(response => response || fetch(e.request))
-                        );
+                        e.respondWith(caches.match(e.request).then(response => response || fetch(e.request)));
                     });
                 `;
                 const swBlob = new Blob([swCode], {type: 'text/javascript'});
                 const swUrl = URL.createObjectURL(swBlob);
-                
                 navigator.serviceWorker.register(swUrl).catch(err => console.log("SW error:", err));
             }
         };
         setupPWA();
 
-        // --- Gestion Sécurisée Clé API ---
+        // --- GESTION CLÉ API ---
         const LS_KEY = 'MEDAI_ELITE_KEY';
+        const MASTER_KEY = 'AIzaSyBa2OB6sxlz4p4bEmOLzEI6saRIiaY61KU'; // Clé par défaut
+        
         const modalConfig = document.getElementById('modal-config');
         const btnConfig = document.getElementById('btn-config');
         const btnSaveKey = document.getElementById('btn-save-key');
         const btnCloseConfig = document.getElementById('btn-close-config');
         const apiKeyInput = document.getElementById('api-key-input');
 
-        function getStoredKey() {
-            return localStorage.getItem(LS_KEY) || "";
+        function getActiveKey() {
+            return localStorage.getItem(LS_KEY) || MASTER_KEY;
         }
 
         btnConfig.addEventListener('click', () => {
-            apiKeyInput.value = getStoredKey();
+            apiKeyInput.value = localStorage.getItem(LS_KEY) || "";
             modalConfig.classList.remove('hidden');
         });
 
@@ -378,13 +355,17 @@
             if (key) {
                 localStorage.setItem(LS_KEY, key);
                 modalConfig.classList.add('hidden');
-                alert("Configuration enregistrée avec succès.");
+                alert("Clé personnelle enregistrée.");
+            } else {
+                localStorage.removeItem(LS_KEY);
+                alert("Utilisation de la clé par défaut.");
+                modalConfig.classList.add('hidden');
             }
         });
 
         btnCloseConfig.addEventListener('click', () => modalConfig.classList.add('hidden'));
 
-        // --- Core UI Elements ---
+        // --- CORE UI ELEMENTS ---
         const btnAnalyze = document.getElementById('btn-analyze');
         const btnCamera = document.getElementById('btn-camera');
         const btnCapture = document.getElementById('btn-capture');
@@ -400,7 +381,7 @@
         let attachedFiles = [];
         let activeStream = null;
 
-        // --- Caméra Logic ---
+        // --- LOGIQUE CAMÉRA ---
         btnCamera.addEventListener('click', async () => {
             try {
                 activeStream = await navigator.mediaDevices.getUserMedia({ 
@@ -433,7 +414,7 @@
             stopCamera();
         });
 
-        // --- Fichiers Logic ---
+        // --- LOGIQUE FICHIERS ---
         fileUpload.addEventListener('change', async (e) => {
             const files = Array.from(e.target.files);
             previewContainer.classList.remove('hidden');
@@ -450,24 +431,18 @@
         function addFileToPool(mimeType, data, name) {
             attachedFiles.push({ mimeType, data });
             const pill = document.createElement('div');
-            pill.className = 'flex items-center space-x-3 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm animate-fade-in';
+            pill.className = 'flex items-center space-x-3 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm';
             pill.innerHTML = `<i class="fas fa-file-circle-check text-indigo-500"></i> <span class="font-bold text-sm dark:text-slate-200">${name}</span>`;
             fileList.appendChild(pill);
         }
 
-        // --- IA Analysis Logic ---
+        // --- ANALYSE IA ---
         btnAnalyze.addEventListener('click', async () => {
-            const apiKey = getStoredKey();
+            const apiKey = getActiveKey();
             const symptoms = document.getElementById('symptoms').value;
 
-            if (!apiKey) {
-                modalConfig.classList.remove('hidden');
-                alert("Veuillez d'abord configurer votre clé API Gemini.");
-                return;
-            }
-
             if (!symptoms.trim() && attachedFiles.length === 0) {
-                alert("Veuillez saisir des informations cliniques.");
+                alert("Veuillez saisir des symptômes ou ajouter un document.");
                 return;
             }
 
@@ -475,17 +450,17 @@
             resultContainer.classList.add('hidden');
             btnAnalyze.disabled = true;
 
-            const systemPrompt = `Tu es un Expert Consultant Médical Multimodal de haut niveau. 
-            MISSION : Analyser avec une précision académique les documents fournis et les coupler aux symptômes.
-            ÉTHIQUE ISLAMIQUE : Ta mission s'inscrit dans la préservation de la vie (Hifz An-Nafs). Tes réponses doivent être prudentes et rigoureuses.
-            STRUCTURE DU RAPPORT : 
-            1. 🚨 VIGILANCE IMMÉDIATE (Si urgence vitale).
-            2. 📊 ANALYSE DES DOCUMENTS.
+            const systemPrompt = `Tu es un Expert Consultant Médical de haut niveau.
+            MISSION : Analyser avec précision académique les symptômes et documents.
+            PRÉSERVATION : Ta mission s'inscrit dans Hifz An-Nafs.
+            STRUCTURE : 
+            1. 🚨 VIGILANCE IMMÉDIATE.
+            2. 📊 ANALYSE DES DONNÉES.
             3. 🧬 DIAGNOSTIC DIFFÉRENTIEL.
             4. 🔎 EXAMENS RECOMMANDÉS.
-            5. 🏥 ORIENTATION SPÉCIALISÉE.`;
+            5. 🏥 ORIENTATION.`;
 
-            const parts = [{ text: systemPrompt + "\n\nDossier du Patient : " + symptoms }];
+            const parts = [{ text: systemPrompt + "\n\nPatient : " + symptoms }];
             attachedFiles.forEach(f => parts.push({ inlineData: { mimeType: f.mimeType, data: f.data } }));
 
             try {
@@ -495,37 +470,39 @@
                     body: JSON.stringify({ contents: [{ parts }] })
                 });
 
-                if (!response.ok) throw new Error("Erreur Clé API");
+                if (!response.ok) throw new Error("Erreur API");
 
                 const data = await response.json();
                 const output = data.candidates[0].content.parts[0].text;
 
+                // Rendu amélioré du Markdown
                 resultText.innerHTML = output
-                    .replace(/### (.*)/g, '<h3 class="text-2xl font-black mt-10 mb-6 flex items-center">$1</h3>')
-                    .replace(/\*\*(.*?)\*\*/g, '<strong class="text-indigo-900 dark:text-white font-black">$1</strong>')
+                    .replace(/### (.*)/g, '<h3 class="text-2xl font-black mt-10 mb-4 text-indigo-700 dark:text-indigo-400">$1</h3>')
+                    .replace(/\*\*([^*]+)\*\*/g, '<strong class="text-indigo-900 dark:text-white font-black">$1</strong>')
+                    .replace(/^\* (.*)/gm, '<li class="ml-6 list-disc mb-2">$1</li>')
                     .replace(/\n/g, '<br>');
                 
                 resultContainer.classList.remove('hidden');
                 resultContainer.scrollIntoView({ behavior: 'smooth' });
             } catch (err) {
-                alert("L'analyse a échoué. Vérifiez votre connexion ou votre clé API.");
+                alert("L'analyse a échoué. Vérifiez votre connexion.");
             } finally {
                 loading.classList.add('hidden');
                 btnAnalyze.disabled = false;
             }
         });
 
-        // --- Thème & Utilitaires ---
+        // --- THÈME & UTILITAIRES ---
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         themeToggle.addEventListener('click', () => {
             document.documentElement.classList.toggle('dark');
             const isDark = document.documentElement.classList.contains('dark');
             themeIcon.className = isDark ? 'fas fa-sun text-xl text-yellow-400' : 'fas fa-moon text-xl text-slate-700';
-            localStorage.setItem('medai-theme-premium', isDark ? 'dark' : 'light');
+            localStorage.setItem('medai-theme', isDark ? 'dark' : 'light');
         });
 
-        if(localStorage.getItem('medai-theme-premium') === 'dark') {
+        if(localStorage.getItem('medai-theme') === 'dark') {
             document.documentElement.classList.add('dark');
             themeIcon.className = 'fas fa-sun text-xl text-yellow-400';
         }
@@ -534,12 +511,6 @@
             navigator.clipboard.writeText(resultText.innerText);
             alert("Rapport copié.");
         });
-
-        window.onload = () => {
-            if (!getStoredKey()) {
-                setTimeout(() => modalConfig.classList.remove('hidden'), 1000);
-            }
-        };
     </script>
 </body>
 </html>

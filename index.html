@@ -293,7 +293,7 @@
 
         // --- GESTION CLÉ API ---
         const LS_KEY = 'MEDAI_ELITE_KEY';
-        const MASTER_KEY = 'AIzaSyBa2OB6sxlz4p4bEmOLzEI6saRIiaY61KU'; 
+        const MASTER_KEY = window.ENV_API_KEY || "AIzaSyBa2OB6sxlz4p4bEmOLzEI6saRIiaY61KU";
         
         const modalConfig = document.getElementById('modal-config');
         const btnConfig = document.getElementById('btn-config');

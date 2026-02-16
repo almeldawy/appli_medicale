@@ -10,7 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="https://cdn-icons-png.flaticon.com/512/2869/2869815.png">
     
-    <link id="manifest-link" rel="manifest">
+    <link rel="manifest" href="manifest.json">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -29,9 +29,7 @@
             transition: background-color 0.6s ease;
         }
 
-        .dark body {
-            background-color: #020617;
-        }
+        .dark body { background-color: #020617; }
 
         .premium-glass {
             background: rgba(255, 255, 255, 0.7);
@@ -65,9 +63,7 @@
             border-radius: 2rem;
         }
 
-        .dark .animated-border {
-            background: #0f172a;
-        }
+        .dark .animated-border { background: #0f172a; }
 
         .animated-border::before {
             content: '';
@@ -81,9 +77,7 @@
             transition: opacity 0.3s;
         }
 
-        .animated-border:hover::before {
-            opacity: 1;
-        }
+        .animated-border:hover::before { opacity: 1; }
 
         @keyframes rotate-border {
             0% { transform: rotate(0deg); }
@@ -97,10 +91,7 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        .dark .btn-luxury {
-            background: #ffffff;
-            color: #020617;
-        }
+        .dark .btn-luxury { background: #ffffff; color: #020617; }
 
         .btn-luxury:hover {
             transform: scale(1.02) translateY(-2px);
@@ -117,12 +108,10 @@
             color: #4338ca;
             border-left: 4px solid #4338ca;
             padding-left: 1rem;
+            font-weight: 800;
         }
 
-        .dark .prose h3 {
-            color: #818cf8;
-            border-left: 4px solid #818cf8;
-        }
+        .dark .prose h3 { color: #818cf8; border-left-color: #818cf8; }
 
         .modal-backdrop {
             background: rgba(0, 0, 0, 0.7);
@@ -149,7 +138,7 @@
         </div>
         
         <div class="flex items-center space-x-3">
-            <button id="btn-config" class="w-10 h-10 rounded-xl flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-slate-500">
+            <button id="btn-config" class="w-10 h-10 rounded-xl flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-all text-slate-500" title="Configuration">
                 <i class="fas fa-key"></i>
             </button>
             <button id="theme-toggle" class="w-12 h-12 rounded-2xl flex items-center justify-center hover:bg-slate-100 dark:hover:bg-slate-800 transition-all">
@@ -162,7 +151,7 @@
         <div class="premium-glass max-w-md w-full rounded-[2.5rem] p-8 space-y-6 shadow-2xl border border-white/20">
             <div class="text-center space-y-2">
                 <h3 class="text-2xl font-black royal-gradient">Accès Sécurisé</h3>
-                <p class="text-slate-500 text-sm">Entrez votre clé API Gemini personnelle pour remplacer la clé par défaut.</p>
+                <p class="text-slate-500 text-sm">Entrez une clé API Gemini personnalisée pour écraser la clé par défaut.</p>
             </div>
             <div class="space-y-4">
                 <div class="relative">
@@ -203,7 +192,7 @@
                         </label>
                         <textarea id="symptoms" rows="5" 
                             class="w-full bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 focus:ring-0 focus:border-indigo-500 outline-none transition-all dark:text-white text-lg placeholder:text-slate-300"
-                            placeholder="Décrivez ici vos symptômes, la durée et l'intensité..."></textarea>
+                            placeholder="Décrivez vos symptômes, la durée et l'intensité..."></textarea>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -234,8 +223,7 @@
                             <video id="video-preview" autoplay playsinline class="shadow-2xl max-w-sm w-full"></video>
                             <div class="flex space-x-4 mt-6">
                                 <button id="btn-capture" class="px-10 py-4 bg-indigo-600 text-white rounded-2xl font-black shadow-lg shadow-indigo-500/40 flex items-center space-x-3">
-                                    <i class="fas fa-bolt"></i>
-                                    <span>Analyser</span>
+                                    <i class="fas fa-bolt"></i><span>Analyser</span>
                                 </button>
                                 <button onclick="stopCamera()" class="px-8 py-4 bg-white dark:bg-slate-800 dark:text-white rounded-2xl font-bold border border-slate-200 dark:border-slate-700">Fermer</button>
                             </div>
@@ -270,17 +258,14 @@
                             </div>
                             <div>
                                 <h2 class="text-3xl font-black dark:text-white">Rapport Officiel</h2>
-                                <p class="text-slate-400 font-bold uppercase text-[10px] tracking-widest">Document généré par MedAI v1.5 Pro</p>
+                                <p class="text-slate-400 font-bold uppercase text-[10px] tracking-widest">Généré par MedAI v1.5 Pro</p>
                             </div>
                         </div>
                         <button id="copy-report" class="flex items-center space-x-3 px-6 py-3 bg-slate-100 dark:bg-slate-800 rounded-2xl hover:bg-indigo-600 hover:text-white transition-all font-bold">
-                            <i class="fas fa-copy"></i>
-                            <span>Copier le Rapport</span>
+                            <i class="fas fa-copy"></i><span>Copier</span>
                         </button>
                     </div>
-                    
-                    <div id="result-text" class="prose prose-indigo dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 leading-[1.8] text-lg">
-                    </div>
+                    <div id="result-text" class="prose prose-indigo dark:prose-invert max-w-none text-slate-700 dark:text-slate-300 leading-[1.8] text-lg"></div>
                 </div>
             </div>
         </div>
@@ -288,52 +273,27 @@
         <footer class="mt-20 text-center space-y-4">
             <p class="text-slate-400 text-xs font-bold uppercase tracking-[0.3em]">Hifz An-Nafs • Excellence • Sécurité</p>
             <p class="text-slate-300 dark:text-slate-600 text-[10px] max-w-lg mx-auto leading-relaxed">
-                Cet outil est une aide à la décision clinique. Il ne dispense jamais d'une consultation médicale physique. En cas d'urgence vitale, composez immédiatement les secours.
+                Aide à la décision clinique. Ne remplace pas un médecin. En cas d'urgence, appelez le 15 ou le 112.
             </p>
         </footer>
     </main>
 
     <script>
-        // --- LOGIQUE PWA ---
+        // --- LOGIQUE PWA (GITHUB EXTERNE) ---
         const setupPWA = () => {
-            const manifest = {
-                "name": "MedAI Elite Concierge",
-                "short_name": "MedAI",
-                "start_url": ".",
-                "display": "standalone",
-                "background_color": "#020617",
-                "theme_color": "#1e1b4b",
-                "icons": [{
-                    "src": "https://cdn-icons-png.flaticon.com/512/2869/2869815.png",
-                    "sizes": "512x512",
-                    "type": "image/png",
-                    "purpose": "any maskable"
-                }]
-            };
-            const manifestBlob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
-            document.getElementById('manifest-link').setAttribute('href', URL.createObjectURL(manifestBlob));
-
             if ('serviceWorker' in navigator) {
-                const swCode = `
-                    const CACHE_NAME = 'medai-cache-v1';
-                    const ASSETS = ['/', 'https://cdn.tailwindcss.com', 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css'];
-                    self.addEventListener('install', (e) => {
-                        e.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)));
-                    });
-                    self.addEventListener('fetch', (e) => {
-                        e.respondWith(caches.match(e.request).then(response => response || fetch(e.request)));
-                    });
-                `;
-                const swBlob = new Blob([swCode], {type: 'text/javascript'});
-                const swUrl = URL.createObjectURL(swBlob);
-                navigator.serviceWorker.register(swUrl).catch(err => console.log("SW error:", err));
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('sw.js')
+                    .then(reg => console.log('SW enregistré'))
+                    .catch(err => console.log('Échec SW', err));
+                });
             }
         };
         setupPWA();
 
         // --- GESTION CLÉ API ---
         const LS_KEY = 'MEDAI_ELITE_KEY';
-        const MASTER_KEY = 'AIzaSyBa2OB6sxlz4p4bEmOLzEI6saRIiaY61KU'; // Clé par défaut
+        const MASTER_KEY = 'AIzaSyBa2OB6sxlz4p4bEmOLzEI6saRIiaY61KU'; 
         
         const modalConfig = document.getElementById('modal-config');
         const btnConfig = document.getElementById('btn-config');
@@ -341,9 +301,7 @@
         const btnCloseConfig = document.getElementById('btn-close-config');
         const apiKeyInput = document.getElementById('api-key-input');
 
-        function getActiveKey() {
-            return localStorage.getItem(LS_KEY) || MASTER_KEY;
-        }
+        function getActiveKey() { return localStorage.getItem(LS_KEY) || MASTER_KEY; }
 
         btnConfig.addEventListener('click', () => {
             apiKeyInput.value = localStorage.getItem(LS_KEY) || "";
@@ -354,18 +312,17 @@
             const key = apiKeyInput.value.trim();
             if (key) {
                 localStorage.setItem(LS_KEY, key);
-                modalConfig.classList.add('hidden');
                 alert("Clé personnelle enregistrée.");
             } else {
                 localStorage.removeItem(LS_KEY);
-                alert("Utilisation de la clé par défaut.");
-                modalConfig.classList.add('hidden');
+                alert("Retour à la clé par défaut.");
             }
+            modalConfig.classList.add('hidden');
         });
 
         btnCloseConfig.addEventListener('click', () => modalConfig.classList.add('hidden'));
 
-        // --- CORE UI ELEMENTS ---
+        // --- CORE UI ---
         const btnAnalyze = document.getElementById('btn-analyze');
         const btnCamera = document.getElementById('btn-camera');
         const btnCapture = document.getElementById('btn-capture');
@@ -381,24 +338,19 @@
         let attachedFiles = [];
         let activeStream = null;
 
-        // --- LOGIQUE CAMÉRA ---
+        // --- CAMÉRA ---
         btnCamera.addEventListener('click', async () => {
             try {
-                activeStream = await navigator.mediaDevices.getUserMedia({ 
-                    video: { facingMode: 'environment', width: 1280 } 
-                });
+                activeStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
                 video.srcObject = activeStream;
                 previewContainer.classList.remove('hidden');
                 cameraBox.classList.remove('hidden');
-                cameraBox.scrollIntoView({ behavior: 'smooth' });
-            } catch (err) {
-                alert("Accès caméra impossible : " + err.message);
-            }
+            } catch (err) { alert("Caméra indisponible."); }
         });
 
         function stopCamera() {
             if (activeStream) {
-                activeStream.getTracks().forEach(track => track.stop());
+                activeStream.getTracks().forEach(t => t.stop());
                 cameraBox.classList.add('hidden');
                 if (attachedFiles.length === 0) previewContainer.classList.add('hidden');
             }
@@ -406,93 +358,66 @@
 
         btnCapture.addEventListener('click', () => {
             const canvas = document.createElement('canvas');
-            canvas.width = video.videoWidth;
-            canvas.height = video.videoHeight;
+            canvas.width = video.videoWidth; canvas.height = video.videoHeight;
             canvas.getContext('2d').drawImage(video, 0, 0);
-            const base64Data = canvas.toDataURL('image/jpeg', 0.8).split(',')[1];
-            addFileToPool('image/jpeg', base64Data, `Snapshot_${new Date().toLocaleTimeString()}`);
+            addFileToPool('image/jpeg', canvas.toDataURL('image/jpeg', 0.8).split(',')[1], `Capture_${Date.now()}`);
             stopCamera();
         });
 
-        // --- LOGIQUE FICHIERS ---
-        fileUpload.addEventListener('change', async (e) => {
-            const files = Array.from(e.target.files);
+        // --- FICHIERS ---
+        fileUpload.addEventListener('change', (e) => {
             previewContainer.classList.remove('hidden');
-            for (const file of files) {
-                const reader = new FileReader();
-                reader.onload = (ev) => {
-                    const base64 = ev.target.result.split(',')[1];
-                    addFileToPool(file.type, base64, file.name);
-                };
-                reader.readAsDataURL(file);
-            }
+            Array.from(e.target.files).forEach(file => {
+                const r = new FileReader();
+                r.onload = (ev) => addFileToPool(file.type, ev.target.result.split(',')[1], file.name);
+                r.readAsDataURL(file);
+            });
         });
 
         function addFileToPool(mimeType, data, name) {
             attachedFiles.push({ mimeType, data });
-            const pill = document.createElement('div');
-            pill.className = 'flex items-center space-x-3 bg-white dark:bg-slate-800 p-4 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm';
-            pill.innerHTML = `<i class="fas fa-file-circle-check text-indigo-500"></i> <span class="font-bold text-sm dark:text-slate-200">${name}</span>`;
-            fileList.appendChild(pill);
+            const p = document.createElement('div');
+            p.className = 'bg-white dark:bg-slate-800 p-3 rounded-xl border dark:border-slate-700 text-xs font-bold dark:text-white flex items-center space-x-2';
+            p.innerHTML = `<i class="fas fa-check-circle text-green-500"></i><span>${name}</span>`;
+            fileList.appendChild(p);
         }
 
-        // --- ANALYSE IA ---
+        // --- ANALYSE ---
         btnAnalyze.addEventListener('click', async () => {
             const apiKey = getActiveKey();
             const symptoms = document.getElementById('symptoms').value;
-
-            if (!symptoms.trim() && attachedFiles.length === 0) {
-                alert("Veuillez saisir des symptômes ou ajouter un document.");
-                return;
-            }
+            if (!symptoms && attachedFiles.length === 0) return alert("Anamnèse vide.");
 
             loading.classList.remove('hidden');
             resultContainer.classList.add('hidden');
             btnAnalyze.disabled = true;
 
-            const systemPrompt = `Tu es un Expert Consultant Médical de haut niveau.
-            MISSION : Analyser avec précision académique les symptômes et documents.
-            PRÉSERVATION : Ta mission s'inscrit dans Hifz An-Nafs.
-            STRUCTURE : 
-            1. 🚨 VIGILANCE IMMÉDIATE.
-            2. 📊 ANALYSE DES DONNÉES.
-            3. 🧬 DIAGNOSTIC DIFFÉRENTIEL.
-            4. 🔎 EXAMENS RECOMMANDÉS.
-            5. 🏥 ORIENTATION.`;
-
+            const systemPrompt = "Expert Médical. Analyse rigoureuse. Structure : 1.🚨 Urgence, 2.📊 Analyse, 3.🧬 Diagnostic Différentiel, 4.🔎 Examens, 5.🏥 Orientation.";
             const parts = [{ text: systemPrompt + "\n\nPatient : " + symptoms }];
             attachedFiles.forEach(f => parts.push({ inlineData: { mimeType: f.mimeType, data: f.data } }));
 
             try {
-                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=${apiKey}`, {
+                const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=${apiKey}`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ contents: [{ parts }] })
                 });
+                const data = await res.json();
+                const out = data.candidates[0].content.parts[0].text;
 
-                if (!response.ok) throw new Error("Erreur API");
-
-                const data = await response.json();
-                const output = data.candidates[0].content.parts[0].text;
-
-                // Rendu amélioré du Markdown
-                resultText.innerHTML = output
-                    .replace(/### (.*)/g, '<h3 class="text-2xl font-black mt-10 mb-4 text-indigo-700 dark:text-indigo-400">$1</h3>')
-                    .replace(/\*\*([^*]+)\*\*/g, '<strong class="text-indigo-900 dark:text-white font-black">$1</strong>')
-                    .replace(/^\* (.*)/gm, '<li class="ml-6 list-disc mb-2">$1</li>')
+                resultText.innerHTML = out
+                    .replace(/### (.*)/g, '<h3 class="text-xl font-extrabold mt-8 mb-4">$1</h3>')
+                    .replace(/\*\*([^*]+)\*\*/g, '<b class="text-indigo-600 dark:text-indigo-400">$1</b>')
+                    .replace(/^\* (.*)/gm, '<li class="ml-4 mb-1">$1</li>')
                     .replace(/\n/g, '<br>');
-                
+
                 resultContainer.classList.remove('hidden');
                 resultContainer.scrollIntoView({ behavior: 'smooth' });
-            } catch (err) {
-                alert("L'analyse a échoué. Vérifiez votre connexion.");
-            } finally {
-                loading.classList.add('hidden');
-                btnAnalyze.disabled = false;
-            }
+            } catch (e) { alert("Erreur d'analyse."); }
+            finally { loading.classList.add('hidden'); btnAnalyze.disabled = false; }
         });
 
-        // --- THÈME & UTILITAIRES ---
+        // --- THEME ---
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         themeToggle.addEventListener('click', () => {
@@ -501,16 +426,10 @@
             themeIcon.className = isDark ? 'fas fa-sun text-xl text-yellow-400' : 'fas fa-moon text-xl text-slate-700';
             localStorage.setItem('medai-theme', isDark ? 'dark' : 'light');
         });
-
         if(localStorage.getItem('medai-theme') === 'dark') {
             document.documentElement.classList.add('dark');
             themeIcon.className = 'fas fa-sun text-xl text-yellow-400';
         }
-
-        document.getElementById('copy-report').addEventListener('click', () => {
-            navigator.clipboard.writeText(resultText.innerText);
-            alert("Rapport copié.");
-        });
     </script>
 </body>
 </html>
